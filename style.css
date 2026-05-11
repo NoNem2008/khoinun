@@ -409,3 +409,51 @@ body {
         width: 0%;
     }
 }
+/* Style cho phần Sở thích */
+.hobbies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.hobby-item {
+    background: rgba(0, 242, 254, 0.1); /* Màu xanh neon nhạt */
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.hobby-item i {
+    font-size: 12px;
+    color: #00f2fe;
+}
+
+.hobby-item span {
+    font-size: 11px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.hobby-item:hover {
+    background: rgba(0, 242, 254, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Điều chỉnh lại độ cao thẻ để không bị tràn */
+.card-inner {
+    height: 520px; /* Tăng từ 480px lên 520px để chứa thêm hobby */
+}
+
+@media screen and (max-width: 480px) {
+    .card-inner {
+        height: 500px;
+    }
+}
