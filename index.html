@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khôi Nùn | Infor</title>
+    <title>Khôi Nùn | Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -17,79 +17,86 @@
         <div class="card-inner" id="cardInner">
 
             <div class="card-face card-front">
-                <div class="avatar-wrapper">
-                    <img src="Ảnh nền.jpg" alt="Avatar">
-                    <div class="status-dot"></div>
-                </div>
-
-                <div class="info-section">
-                    <h1 class="user-name">TRẦN NGUYỄN ĐĂNG KHÔI</h1>
-                    <p class="nickname">Khôi Nùn︱NoNem</p>
-                    <div class="birth-year-box">
-                        <i class="fa-solid fa-cake-candles"></i>
-                        <span>Sinh năm: 2008</span>
+                <div class="content-box">
+                    <div class="avatar-wrapper">
+                        <img src="Ảnh nền.jpg" alt="Avatar">
                     </div>
-                    <p class="user-bio">
-                        Xin chào, tui tên là Khôi, bạn có thể gọi tui là Khôi Nùn hoặc NoNem, tui sinh năm 2008 và tui ở
-                        Tây Ninh, bên dưới là thông tin về mạng xã hội của tui:
-                    </p>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/khoi.nun.2024" target="_blank" rel="noopener noreferrer"
-                        class="btn fb">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@khoinun2008?lang=vi-VN" target="_blank" rel="noopener noreferrer"
-                        class="btn tt">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
-                    <a href="https://discord.gg/TNfW4Wkbqx" target="_blank" rel="noopener noreferrer" class="btn ds">
-                        <i class="fa-brands fa-discord"></i>
-                    </a>
+
+                    <div class="info-group">
+                        <h1 class="user-name"><i class="fa-solid fa-signature"></i> TRẦN NGUYỄN ĐĂNG KHÔI 👤</h1>
+                        <p class="nickname"><i class="fa-solid fa-tag"></i> Khôi Nùn︱NoNem<i class="fa-solid fa-tag"></i></p>
+                    </div>
+
+                    <div class="bio-wrapper">
+                        <div class="bio-item"><i class="fa-solid fa-code"></i> Developer<i class="fa-solid fa-code"></i></div>
+                        <div class="bio-item"><i class="fa-solid fa-otter"></i> Capybara Lover<i class="fa-solid fa-otter"></i></div>
+                        <div class="bio-item"><i class="fa-solid fa-location-dot"></i>Viet Nam<i class="fa-solid fa-location-dot"></i></div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/khoi.nun.2024" class="social-btn fb" target="_blank"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@khoinun2008" class="social-btn tt" target="_blank"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://discord.gg/TNfW4Wkbqx" class="social-btn ds" target="_blank"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
                 </div>
 
-                <button class="flip-trigger" onclick="flipCard()">
-                    Thông tin khác <i class="fa-solid fa-rotate"></i>
-                </button>
+                <button class="flip-btn" onclick="flipCard()">Khám phá thêm <i
+                        class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <div class="card-face card-back">
-                <h2 class="back-title">CHUYỂN TIỀN CHO TUI</h2>
+                <h2 class="back-title">📂 KHO LƯU TRỮ 📂</h2>
 
-                <div class="qr-container">
-                    <img src="banking.jpg" alt="QR Banking" class="qr-code">
-                    <div class="qr-overlay"></div>
+                <div class="tab-header">
+                    <button class="tab-btn active" onclick="switchTab('info', this)"><i
+                            class="fa-solid fa-user"></i></button>
+                    <button class="tab-btn" onclick="switchTab('bank', this)"><i
+                            class="fa-solid fa-credit-card"></i></button>
                 </div>
 
-                <div class="bank-info">
-                    <p class="bank-name">NGÂN HÀNG: <span>AGRIBAK</span></p>
-                    <p class="account-name">CHỦ TK: <span>TRAN NGUYEN DANG KHOI</span></p>
-                    <p class="account-number">STK: <span>5704205429140</span> <i class="fa-regular fa-copy"
-                            onclick="copySTK()"></i>
-                    </p>
+                <div class="tab-content">
+                    <div id="info" class="panel active">
+                        <div class="panel-inner">
+                            <h3>🏷️ SƠ LƯỢC VỀ TUI 🏷️</h3><br>
+                            <p>Xin chào, tui là <b>Khôi</b>, bạn có thể gọi tui là <b>Khôi Nùn</b> hay <b>NoNem</b> đều được nhé. À mà nickname của tui là <b>NoNem</b> chứ không phải <b>NoName</b> nhé, đừng hiểu nhầm là tui ghi lộn nha😭, tui sinh năm 2008 và hiện tại tui dang ở Tây Ninh nha🥰</p>
+                            <div class="tags">
+                                <span class="tag-item">#Coder</span>
+                                <span class="tag-item">#YeuthichCaypybara</span>
+                                <span class="tag-item">#2008</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="bank" class="panel">
+                        <div class="panel-inner">
+                            <div class="atm-card" onclick="copySTK()">
+                                <div class="atm-top"><span>AGRIBANK</span><i class="fa-solid fa-wifi"></i></div>
+                                <div class="atm-main">
+                                    <div class="atm-user">TRAN NGUYEN DANG KHOI</div>
+                                    <div class="atm-number-box">
+                                        <span class="atm-number">5704 2054 29140</span>
+                                        <i class="fa-regular fa-copy"></i>
+                                    </div>
+                                </div>
+                                <div class="atm-chip"></div>
+                            </div>
+                            <p class="hint-text">Bạn có thể chuyển tiền cho tui qua tài khoản này <br><b>Nhấn vào thẻ để sao chép STK</b><br><br><div><b>Trang Profile này hiện đang cập nhật...! </b></div></p>
+                        </div>
+                    </div>
                 </div>
 
-                <button class="flip-trigger back-btn" onclick="flipCard()">
-                    <i class="fa-solid fa-reply"></i> Quay lại
-                </button>
+                <button class="flip-btn" onclick="flipCard()"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
             </div>
-
         </div>
     </div>
+
+    <div id="copy-toast" class="copy-toast">✅ Đã sao chép STK!</div>
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-    <div id="copy-toast" class="copy-toast">
-        <div class="toast-content">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Đã sao chép STK Agribank của Khôi!</span>
-        </div>
-        <div class="toast-progress"></div>
-    </div>
-</body> 
-
+</body>
 
 </html>
-
-
-
-
