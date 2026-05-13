@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: 'Lexend', sans-serif;
     -webkit-tap-highlight-color: transparent;
+
+    /* FIX LỖI MÀU: Ép tất cả chữ thành màu trắng mặc định */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 body {
@@ -78,12 +82,10 @@ body {
     z-index: 10;
 }
 
-/* Vòng xoay Gradient phía sau */
 .avatar-wrapper::before {
     content: '';
     position: absolute;
     width: 130px;
-    /* Lớn hơn ảnh một chút */
     height: 130px;
     border-radius: 50%;
     background: linear-gradient(45deg, #00f2fe, #ff00cc, #00f2fe, #ff00cc);
@@ -99,31 +101,25 @@ body {
     height: 100%;
     border-radius: 50%;
     border: 3.5px solid #fff;
-    /* Viền trắng dày hơn chút cho nét */
     object-fit: cover;
     box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
     transition: 0.5s ease;
 }
 
-/* Hiệu ứng khi đưa chuột vào (PC) hoặc chạm (PE) */
 .avatar-wrapper:hover img,
 .avatar-wrapper:active img {
     border-color: #00f2fe;
     box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
     filter: brightness(1.1);
-    /* Làm ảnh sáng hơn nhẹ */
 }
 
-/* Tăng cường độ sáng của vòng xoay khi hover */
 .avatar-wrapper:hover::before,
 .avatar-wrapper:active::before {
     opacity: 1;
     filter: blur(12px);
     animation: rotateGlow 3s linear infinite;
-    /* Xoay nhanh hơn khi hover */
 }
 
-/* Hiệu ứng xoay vòng sáng */
 @keyframes rotateGlow {
     0% {
         background-position: 0% 50%;
@@ -145,7 +141,6 @@ body {
 }
 
 .user-name {
-    color: #fff;
     font-size: 19px;
     font-weight: 800;
     display: flex;
@@ -153,13 +148,21 @@ body {
     gap: 8px;
 }
 
-.user-name i {
-    color: #00f2fe;
-    font-size: 16px;
+/* Các phần điểm nhấn giữ màu xanh đặc trưng */
+.user-name i,
+.nickname,
+.nickname i,
+.bio-item i,
+.back-title,
+.tag-item,
+.atm-number,
+.atm-number-box i,
+.panel b {
+    color: #00f2fe !important;
+    -webkit-text-fill-color: #00f2fe !important;
 }
 
 .nickname {
-    color: #00f2fe;
     font-size: 14px;
     margin-top: 4px;
     display: flex;
@@ -176,7 +179,6 @@ body {
 }
 
 .bio-item {
-    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -184,30 +186,16 @@ body {
 }
 
 .bio-item i {
-    color: #00f2fe;
     width: 20px;
     text-align: center;
 }
 
-/* HIỆU ỨNG CHUNG CHO TẤT CẢ NÚT BẤM (FIX LỖI GIẬT & HỖ TRỢ PE) */
 .social-btn,
 .flip-btn,
 .tab-btn {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     position: relative;
     cursor: pointer;
-}
-
-.social-btn::after,
-.flip-btn::after,
-.tab-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 130%;
-    z-index: -1;
 }
 
 .social-btn:hover,
@@ -219,7 +207,6 @@ body {
     transform: translateY(-8px) !important;
 }
 
-/* SOCIAL BTNS */
 .social-links {
     display: flex;
     justify-content: center;
@@ -237,7 +224,6 @@ body {
     align-items: center;
     font-size: 20px;
     background: rgba(255, 255, 255, 0.05);
-    color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.4);
     text-decoration: none;
 }
@@ -263,14 +249,12 @@ body {
     box-shadow: -4px 0 15px #25F4EE, 4px 0 15px #ff0050 !important;
 }
 
-/* NÚT GRADIENT */
 .flip-btn {
     width: 100%;
     padding: 15px;
     border-radius: 15px;
     border: none;
     background: linear-gradient(90deg, #00f2fe 0%, #ff00cc 100%);
-    color: #fff;
     font-weight: 800;
     margin-top: 20px;
     box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
@@ -281,17 +265,16 @@ body {
     transform: translateY(-8px) scale(1.02) !important;
     background: #fff !important;
     color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
     box-shadow: 0 10px 25px rgba(255, 0, 204, 0.4) !important;
 }
 
-/* MẶT SAU & TAGS */
 .card-back {
     transform: rotateY(180deg);
     border-color: #00f2fe;
 }
 
 .back-title {
-    color: #00f2fe;
     font-size: 20px;
     text-align: center;
     margin-bottom: 20px;
@@ -311,14 +294,22 @@ body {
     border-radius: 15px;
     background: #222;
     border: 1px solid #333;
-    color: #666;
+}
+
+.tab-btn i {
+    color: #666 !important;
+    -webkit-text-fill-color: #666 !important;
 }
 
 .tab-btn.active {
     background: #00f2fe;
-    color: #000;
     border-color: #fff;
     transform: translateY(-8px) scale(1.1) !important;
+}
+
+.tab-btn.active i {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
 }
 
 .tab-content {
@@ -352,12 +343,10 @@ body {
     border: 1px solid rgba(0, 242, 254, 0.3);
     padding: 5px 12px;
     border-radius: 8px;
-    color: #00f2fe;
     font-size: 12px;
     font-weight: 600;
 }
 
-/* BANK CARD */
 .atm-card {
     background: linear-gradient(135deg, #0f0f0f 0%, #252525 100%);
     border: 1.5px solid rgba(255, 255, 255, 0.1);
@@ -381,9 +370,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #666;
     font-size: 13px;
     font-weight: 800;
+}
+
+.atm-top span,
+.atm-top i {
+    color: #666 !important;
+    -webkit-text-fill-color: #666 !important;
 }
 
 .atm-main {
@@ -392,7 +386,6 @@ body {
 }
 
 .atm-user {
-    color: #fff;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -403,7 +396,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #00f2fe;
 }
 
 .atm-number {
@@ -422,24 +414,29 @@ body {
 }
 
 .hint-text {
-    color: #444;
     font-size: 11px;
     margin-top: 15px;
 }
 
-/* TOAST */
+.hint-text,
+.hint-text b {
+    color: #444 !important;
+    -webkit-text-fill-color: #444 !important;
+}
+
 .copy-toast {
     position: fixed;
     bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
     background: #00f2fe;
-    color: #000;
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: 800;
     transition: 0.5s;
     z-index: 9999;
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
 }
 
 .copy-toast.show {
@@ -458,32 +455,45 @@ body {
     }
 }
 
+/* --- PHẦN 2: RESPONSIVE FIX LỖI MÉO THẺ TRÊN ĐIỆN THOẠI --- */
 @media screen and (max-width: 480px) {
+    .profile-container {
+        max-width: 330px;
+        /* Thu hẹp container để không bị tràn lề */
+    }
+
     .card-inner {
-        width: 310px;
-        height: 460px;
+        width: 100%;
+        height: 520px;
+        /* Tăng chiều cao để chứa đủ nội dung mặt sau */
     }
 
     .card-face {
-        padding: 25px 20px;
+        padding: 25px 15px !important;
+        border-radius: 30px !important;
     }
 
     .avatar-wrapper {
-        width: 110px;
-        height: 110px;
+        width: 100px !important;
+        height: 100px !important;
     }
 
-    .avatar-wrapper img {
-        width: 105px;
-        height: 105px;
+    .avatar-wrapper::before {
+        width: 110px !important;
+        height: 110px !important;
     }
 
     .user-name {
-        font-size: 17px;
+        font-size: 16px !important;
+    }
+
+    .panel p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
     }
 
     .social-btn {
-        width: 40px;
-        height: 40px;
+        width: 45px !important;
+        height: 45px !important;
     }
 }
