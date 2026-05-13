@@ -22,24 +22,26 @@ particlesJS('particles-js', {
     "retina_detect": true
 });
 
-function flipCard() {
-    document.getElementById('cardInner').classList.toggle('is-flipped');
+function flipCard() { document.getElementById('cardInner').classList.toggle('is-flipped'); }
+
+function switchTab(tabId, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
 }
+
 function copySTK() {
-    const stk = "5704205429140";
-
-    // Thực hiện copy
-    navigator.clipboard.writeText(stk).then(() => {
+    navigator.clipboard.writeText("5704205429140").then(() => {
         const toast = document.getElementById('copy-toast');
-
-        // Hiện Toast
         toast.classList.add('show');
-
-        // Sau 2.5 giây thì ẩn đi
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
-    }).catch(err => {
-        console.error('Lỗi khi copy: ', err);
+        setTimeout(() => toast.classList.remove('show'), 2000);
     });
+}
+
+function switchTab(tabId, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
 }
