@@ -45,3 +45,29 @@ function switchTab(tabId, btn) {
     document.getElementById(tabId).classList.add('active');
     btn.classList.add('active');
 }
+
+function toggleMore() {
+    document.querySelector('.card-front').classList.toggle('show-more');
+}
+
+document.querySelectorAll('.social-btn[title]').forEach(b => { b.dataset.name = b.title; });
+
+let tipTimer;
+document.querySelectorAll('a.social-btn[data-name]').forEach(btn => {
+    btn.addEventListener('click', e => {
+        if (!window.matchMedia('(hover: none)').matches) return;
+        if (!btn.classList.contains('show-tip')) {
+            e.preventDefault();
+            document.querySelectorAll('.show-tip').forEach(b => b.classList.remove('show-tip'));
+            btn.classList.add('show-tip');
+            clearTimeout(tipTimer);
+            tipTimer = setTimeout(() => btn.classList.remove('show-tip'), 2500);
+        }
+    });
+});
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('.social-btn')) {
+        document.querySelectorAll('.show-tip').forEach(b => b.classList.remove('show-tip'));
+    }
+});
